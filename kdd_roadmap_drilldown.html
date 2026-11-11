@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="vi" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KDD Process Interactive Roadmap • Easy Learning Edition</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    .bg-grid-pattern {
+      background-image: radial-gradient(rgba(148, 163, 184, 0.2) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    .dark .bg-grid-pattern {
+      background-image: radial-gradient(rgba(71, 85, 105, 0.3) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    .metro-line {
+      position: absolute;
+      left: 28px;
+      top: 40px;
+      bottom: 40px;
+      width: 4px;
+      background: linear-gradient(180deg, #38bdf8 0%, #818cf8 25%, #c084fc 50%, #f43f5e 75%, #34d399 100%);
+      border-radius: 9999px;
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+    }
+    @media (min-width: 768px) {
+      .metro-line {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+    .card-glass {
+      backdrop-filter: blur(12px);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .card-glass:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(99, 102, 241, 0.3);
+    }
+    .dark .card-glass:hover {
+      box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(99, 102, 241, 0.5);
+    }
+    .drawer-panel {
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .drawer-open {
+      transform: translateX(0) !important;
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: rgba(148, 163, 184, 0.4);
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased min-h-screen bg-grid-pattern selection:bg-indigo-500 selection:text-white">
+
+  <!-- TOP BAR -->
+  <header class="sticky top-0 z-30 border-b border-slate-800/80 bg-slate-950/85 backdrop-blur-md px-4 sm:px-8 py-3.5">
+    <div class="max-w-6xl mx-auto flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-indigo-500 to-sky-400 flex items-center justify-center font-black text-white text-sm shadow-md shadow-indigo-500/20">
+          K
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-bold tracking-wider uppercase text-sky-400">Roadmap Dễ Học • Chuẩn Đề Cương</span>
+            <span class="text-[10px] px-1.5 py-0.2 rounded bg-slate-800 text-slate-400 border border-slate-700">ITS324 - HUB</span>
+          </div>
+          <h1 class="text-sm sm:text-base font-bold text-white tracking-tight leading-none">
+            KDD Knowledge Discovery Roadmap (Có Định Vị File & Slide)
+          </h1>
+        </div>
+      </div>
+
+      <!-- SEARCH BOX -->
+      <div class="flex items-center gap-2.5">
+        <div class="relative hidden sm:block w-64 md:w-80">
+          <input 
+            type="text" 
+            id="search-input" 
+            oninput="handleSearch(this.value)" 
+            placeholder="Tìm thuật toán (Cây quyết định, Hồi quy, K-Means, PCA, Lift)..." 
+            class="w-full bg-slate-900/90 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all"
+          />
+          <span class="absolute right-2.5 top-2 text-[10px] text-slate-500 font-mono">⌘K</span>
+        </div>
+        <button onclick="toggleTheme()" class="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-700 flex items-center justify-center text-xs text-slate-400 hover:text-white transition-all" title="Đổi giao diện Sáng/Tối">
+          🌓
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main class="max-w-5xl mx-auto px-4 sm:px-6 pt-8 pb-16">
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 mb-3.5">
+        <span class="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse"></span>
+        <span>Mỗi trạm đều có: Định vị File bài giảng, Slide, Giải thích dễ hiểu & Bẫy thi</span>
+      </div>
+      <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight mb-3">
+        Lộ Trình Quy Trình KDD & Khai Phá Dữ Liệu
+      </h2>
+      <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+        Bấm vào bất kỳ trạm nào để mở <strong class="text-indigo-400">ngăn kéo giải thích chi tiết</strong>: xem chính xác nội dung nằm ở <span class="text-sky-400 font-semibold">File Bài giảng nào</span>, <span class="text-amber-400 font-semibold">Slide nào</span> và bản chất bình dân dễ nhớ nhất.
+      </p>
+
+      <!-- CHAPTER FILTER PILLS -->
+      <div class="flex items-center justify-center gap-1.5 mt-6 flex-wrap" id="filter-pills">
+        <button onclick="filterBy('all')" class="filter-tag px-3 py-1.5 rounded-lg text-xs font-semibold bg-indigo-600 text-white shadow-sm shadow-indigo-600/30 transition-all" data-val="all">Tất cả (7 Trạm)</button>
+        <button onclick="filterBy('ch2')" class="filter-tag px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition-all" data-val="ch2">Chương 2: Tiền xử lý</button>
+        <button onclick="filterBy('ch3')" class="filter-tag px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition-all" data-val="ch3">Chương 3: Luật kết hợp</button>
+        <button onclick="filterBy('ch4')" class="filter-tag px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition-all" data-val="ch4">Chương 4: Phân lớp</button>
+        <button onclick="filterBy('ch5')" class="filter-tag px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition-all" data-val="ch5">Chương 5: Gom cụm</button>
+        <button onclick="filterBy('ch6')" class="filter-tag px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition-all" data-val="ch6">Chương 6: Xu hướng mới</button>
+      </div>
+    </div>
+
+    <!-- CANVAS TIMELINE -->
+    <div class="relative pl-10 sm:pl-14 md:pl-0 my-12" id="roadmap-canvas">
+      <div class="metro-line"></div>
+
+      <!-- START -->
+      <div class="flex justify-start md:justify-center mb-10 relative">
+        <div class="z-10 px-4 py-2 rounded-xl font-bold text-xs bg-slate-900/90 text-slate-200 border border-slate-800 shadow-xl backdrop-blur-md flex items-center gap-2.5">
+          <span class="w-2.5 h-2.5 rounded-full bg-sky-400 shadow-lg shadow-sky-400/50"></span>
+          <span class="tracking-wider uppercase">ĐẦU VÀO: CƠ SỞ DỮ LIỆU THÔ (RAW DATA)</span>
+        </div>
+      </div>
+
+      <!-- STATIONS -->
+      <div class="space-y-8" id="stations-wrapper">
+        <!-- Injected by JS -->
+      </div>
+
+      <!-- END -->
+      <div class="flex justify-start md:justify-center mt-12 relative">
+        <div class="z-10 px-5 py-2.5 rounded-xl font-bold text-xs bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 text-white shadow-xl shadow-emerald-500/20 border border-emerald-400/30 flex items-center gap-2">
+          <span>🏆 ĐẦU RA: TRI THỨC VÀ HÀNH ĐỘNG DOANH NGHIỆP</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- SLIDE-OVER DRAWER -->
+  <div id="drawer-backdrop" onclick="closeDrawer()" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-40 hidden transition-opacity duration-300"></div>
+
+  <div id="side-drawer" class="fixed top-0 right-0 bottom-0 w-full sm:w-[540px] md:w-[620px] bg-slate-900 border-l border-slate-800 shadow-2xl z-50 transform translate-x-full drawer-panel flex flex-col">
+    
+    <!-- DRAWER TOP -->
+    <div class="p-5 border-b border-slate-800/80 bg-slate-950/80 flex items-center justify-between">
+      <div>
+        <div class="flex items-center gap-2 mb-1">
+          <span id="d-badge" class="px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-wider rounded-md bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">TRẠM 5</span>
+          <span id="d-chapter" class="px-2 py-0.5 text-xs font-semibold rounded-md bg-slate-800 text-slate-300 border border-slate-700">Chương 3, 4, 5, 6</span>
+        </div>
+        <h2 id="d-title" class="text-base sm:text-lg font-bold text-white leading-tight">Khai phá Dữ liệu (Data Mining)</h2>
+      </div>
+      <button onclick="closeDrawer()" class="w-8 h-8 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-400 hover:text-white flex items-center justify-center font-bold text-sm transition-all">✕</button>
+    </div>
+
+    <!-- SUB-NAV TABS FOR STATION 5 (IF APPLICABLE) OR GENERAL TABS -->
+    <div id="drawer-subnav" class="flex border-b border-slate-800/80 bg-slate-950/40 px-5 text-xs font-semibold overflow-x-auto custom-scroll">
+      <!-- Injected by JS -->
+    </div>
+
+    <!-- DRAWER BODY -->
+    <div class="p-6 overflow-y-auto custom-scroll flex-1 space-y-5" id="drawer-body">
+      <!-- Injected by JS -->
+    </div>
+
+    <!-- DRAWER FOOTER -->
+    <div class="p-4 border-t border-slate-800 bg-slate-950/80 flex items-center justify-between text-xs text-slate-500">
+      <span>Bấm <kbd class="px-1.5 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700 font-mono">ESC</kbd> để đóng nhanh</span>
+      <button onclick="closeDrawer()" class="px-4 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-white font-semibold transition-all">
+        Đã hiểu & Đóng
+      </button>
+    </div>
+  </div>
+
+  <script>
+    const STATIONS_DATA = [
+      {
+        id: 's1',
+        step: 1,
+        title: 'Làm sạch Dữ liệu (Data Cleaning)',
+        chapterId: 'ch2',
+        chapterTag: 'Chương 2 (Mục 2.3)',
+        side: 'left',
+        badge: 'Chiếm 60-70% thời gian',
+        summary: 'Xử lý bản ghi bị thiếu, lọc nhiễu và phát hiện các điểm ngoại lai dị biệt.',
+        location: 'File: "Bài giảng chương 2.docx" (Mục 2.3, trang 6-12) | Slide: "DM-Chuong 02.pdf" (Slide 15 - 27)',
+        plainDesc: 'Dữ liệu thu thập ngoài đời luôn bẩn (bị thiếu, nhập sai, đo nhầm). Bước này giống như nhặt rác và phân loại trước khi nấu ăn.',
+        pills: ['Điền thiếu: Mean vs. Median', 'Khử nhiễu: Phân giỏ Binning', 'Ngoại lai: Khoảng tứ phân vị IQR'],
+        modules: [
+          {
+            tag: 'Mục 2.3.1',
+            name: 'Xử lý dữ liệu bị thiếu (Missing Values)',
+            source: 'Bài giảng Chương 2 (Mục 2.3.1, trang 6-8) • Slide 17-21',
+            plainMeaning: 'Khi một ô bị trống (NaN, null), ta phải quyết định bỏ đi hay điền số gì vào đó.',
+            keyPoints: [
+              '<strong>Bỏ qua bản ghi:</strong> Chỉ làm khi thiếu nhãn phân loại (Class label) hoặc tỷ lệ thiếu dưới 1%.',
+              '<strong>Điền Mean (Trung bình cộng):</strong> Dùng khi dữ liệu có phân phối chuẩn, đối xứng đều 2 bên.',
+              '<strong>Điền Median (Trung vị):</strong> BẮT BUỘC DÙNG khi dữ liệu bị lệch (như thu nhập có vài tỷ phú kéo giá trị trung bình lên quá cao).',
+              '<strong>Điền Mode (Yếu vị):</strong> Dùng cho biến chữ/danh mục (giá trị nào xuất hiện nhiều nhất thì điền).',
+              '<strong>Điền bằng Mô hình Hồi quy (Regression Imputation):</strong> Xem thuộc tính bị thiếu là biến mục tiêu Y và dùng các thuộc tính còn lại làm X để huấn luyện mô hình dự đoán điền vào.'
+            ],
+            examQuestion: 'Đề thi hỏi: "Thuộc tính thu nhập bị lệch phải, nên dùng phương pháp nào để điền thiếu?" -> Chọn ngay: <strong>Median Imputation</strong>.'
+          },
+          {
+            tag: 'Mục 2.3.2',
+            name: 'Khử nhiễu & Điểm ngoại lai (Noise & Outliers)',
+            source: 'Bài giảng Chương 2 (Mục 2.3.2, trang 9-11) • Slide 22-26',
+            plainMeaning: 'Nhiễu là sai số đo lường ngẫu nhiên cần làm mịn; Ngoại lai là giá trị khác thường vượt trội.',
+            keyPoints: [
+              '<strong>Phân giỏ (Binning):</strong> Chia dãy số thành các giỏ bằng nhau (Equal-width) hoặc bằng số phần tử (Equal-frequency). Sau đó thay các số trong giỏ bằng Mean, Median hoặc giá trị Biên (Boundaries) gần nó nhất.',
+              '<strong>Công thức Tứ phân vị (IQR):</strong> IQR = Q3 - Q1. Điểm nào nằm ngoài [Q1 - 1.5×IQR, Q3 + 1.5×IQR] là ngoại lai.'
+            ],
+            examQuestion: 'Đề thi hỏi tính toán: Cho Q1=60, Q3=78 -> IQR=18. Ngưỡng dưới = 60 - 1.5×18 = 33. Số nào nhỏ hơn 33 là ngoại lai!'
+          }
+        ]
+      },
+      {
+        id: 's2',
+        step: 2,
+        title: 'Tích hợp Dữ liệu (Data Integration)',
+        chapterId: 'ch2',
+        chapterTag: 'Chương 2 (Mục 2.4)',
+        side: 'right',
+        badge: 'Gộp nhiều nguồn CSDL',
+        summary: 'Hợp nhất dữ liệu từ nhiều nguồn phân tán về một lược đồ thống nhất.',
+        location: 'File: "Bài giảng chương 2.docx" (Mục 2.4, trang 13-18) • Slide: "DM-Chuong 02.pdf" (Slide 28 - 35)',
+        plainDesc: 'Công ty có nhiều phòng ban, mỗi bên lưu dữ liệu một kiểu (Excel, SQL, nhật ký web). Bước này gộp tất cả thành 1 bảng chuẩn duy nhất.',
+        pills: ['Khớp Schema (cust_id = id)', 'Biến số: Tương quan Pearson (r)', 'Biến chữ: Kiểm định Chi-Square (χ²)'],
+        modules: [
+          {
+            tag: 'Mục 2.4.1',
+            name: 'Nhận dạng thực thể (Entity Identification)',
+            source: 'Bài giảng Chương 2 (Mục 2.4.1) • Slide 29-30',
+            plainMeaning: 'Nhận ra hai cột khác tên nhưng thực chất là cùng một thứ.',
+            keyPoints: [
+              'Khớp lược đồ (Schema matching): Ví dụ bảng Bán hàng gọi là `cust_id`, bảng Chăm sóc khách hàng gọi là `customer_number` -> Hệ thống phải nhận diện được là cùng chỉ 1 người.',
+              'Sử dụng Siêu dữ liệu (Metadata) để kiểm tra kiểu dữ liệu, độ dài và ràng buộc.'
+            ],
+            examQuestion: 'Đề thi hỏi: Vấn đề nhận diện hai thuộc tính khác tên nhưng cùng bản chất trong tích hợp dữ liệu gọi là gì? -> <strong>Entity Identification Problem</strong>.'
+          },
+          {
+            tag: 'Mục 2.4.3 & 2.4.4',
+            name: 'Phát hiện dữ liệu dư thừa (Redundancy Detection)',
+            source: 'Bài giảng Chương 2 (Mục 2.4.3, 2.4.4) • Slide 31-34',
+            plainMeaning: 'Hai cột chứa thông tin giống hệt nhau (như Năm sinh và Tuổi) thì thừa, cần đo mức độ tương quan để loại bớt.',
+            keyPoints: [
+              '<strong>Với 2 biến số liên tục:</strong> Dùng Hệ số tương quan Pearson (r). Nếu r tiến gần +1 hoặc -1 thì hai biến phụ thuộc tuyến tính chặt chẽ -> Có thể bỏ 1 biến.',
+              '<strong>Với 2 biến phân loại/rời rạc:</strong> Dùng Kiểm định Chi-Square (χ²). Nếu χ² lớn vượt ngưỡng thì hai biến có mối quan hệ phụ thuộc mạnh.'
+            ],
+            examQuestion: 'Bẫy thi: Đo tương quan 2 biến số dùng gì? -> <strong>Pearson</strong>. Đo tính độc lập 2 biến phân loại dùng gì? -> <strong>Chi-Square (χ²)</strong>.'
+          }
+        ]
+      },
+      {
+        id: 's3',
+        step: 3,
+        title: 'Lựa chọn & Rút gọn (Selection & Reduction)',
+        chapterId: 'ch2',
+        chapterTag: 'Chương 2 (2.6) & Chương 6 (6.3)',
+        side: 'left',
+        badge: 'Tránh Lời nguyền chiều',
+        summary: 'Thu nhỏ số lượng cột và số dòng nhưng vẫn giữ nguyên tính chất cốt lõi của dữ liệu.',
+        location: 'File: "Bài giảng chương 2.docx" (Mục 2.6) & "Bài giảng CHƯƠNG 6.docx" (Mục 6.3) • Slide: "DM-Chuong 06.pdf" (Slide 19-31)',
+        plainDesc: 'Bảng dữ liệu có 500 cột và hàng triệu dòng khiến máy chạy chậm hoặc đơ. Ta phải lọc bớt cột thừa và nén dữ liệu lại.',
+        pills: ['Feature Selection (Chọn biến gốc)', 'Feature Extraction (PCA tạo biến mới)', 'Lấy mẫu phân tầng (Stratified)'],
+        modules: [
+          {
+            tag: 'Mục 2.6 & Ch.6',
+            name: 'Lựa chọn đặc trưng vs. Trích xuất đặc trưng',
+            source: 'Bài giảng Chương 6 (Bảng đối chiếu cuối file) • Tan et al. Chapter 2',
+            plainMeaning: 'Phân biệt giữa việc "chọn lọc lại cột cũ" và "dùng toán tạo ra cột mới".',
+            keyPoints: [
+              '<strong>Lựa chọn đặc trưng (Feature Selection):</strong> Chọn ra tập con từ các cột ban đầu có sẵn (giữ nguyên tên cột và ý nghĩa vật lý).',
+              '<strong>Trích xuất đặc trưng (Feature Extraction):</strong> Dùng phép biến đổi toán học kết hợp các cột cũ thành các cột mới hoàn toàn (như PCA, Autoencoder).',
+              '<strong>Rút gọn tham số (Parametric Data Reduction):</strong> Dùng mô hình Hồi quy tuyến tính (Linear Regression) để nén dữ liệu thành phương trình y = ax + b, chỉ cần lưu hệ số thay vì lưu toàn bộ các điểm dữ liệu thô.'
+            ],
+            examQuestion: 'Bẫy thi: PCA thuộc nhóm nào? -> <strong>Feature Extraction</strong> (Trích xuất đặc trưng), KHÔNG PHẢI Feature Selection!'
+          },
+          {
+            tag: 'Chương 6 - Slide 23-30',
+            name: 'Giảm chiều PCA vs. t-SNE',
+            source: 'Slide DM-Chuong 06.pdf (Slide 23-30) • Bài giảng Chương 6 (Mục 6.3)',
+            plainMeaning: 'Hai cách giảm từ hàng chục cột xuống còn 2-3 cột để vẽ đồ thị 2D.',
+            keyPoints: [
+              '<strong>PCA (Principal Component Analysis):</strong> Giảm chiều tuyến tính, xoay trục tìm hướng có phương sai (Variance) lớn nhất. Công thức tính % thông tin giữ lại = (Tổng các λ chọn) / (Tổng tất cả λ).',
+              '<strong>t-SNE:</strong> Giảm chiều phi tuyến dựa trên xác suất và phân phối Student-t, giữ nguyên cụm lân cận cục bộ, tối ưu khi vẽ biểu đồ cụm 2D/3D.'
+            ],
+            examQuestion: 'Đề thi hỏi tính toán PCA: Cho 4 trị riêng λ = [8, 4, 2, 1]. Hai thành phần đầu giữ được bao nhiêu %? -> (8+4)/(8+4+2+1) = 12/15 = <strong>80%</strong>.'
+          }
+        ]
+      },
+      {
+        id: 's4',
+        step: 4,
+        title: 'Biến đổi Dữ liệu (Transformation)',
+        chapterId: 'ch2',
+        chapterTag: 'Chương 2 (2.5) & Chương 6 (6.3)',
+        side: 'right',
+        badge: 'Chuẩn hóa thang đo',
+        summary: 'Đưa các cột về cùng thang đo (0 đến 1) và đổi chữ thành số nhị phân để máy tính hiểu.',
+        location: 'File: "Bài giảng chương 2.docx" (Mục 2.5) & "DM-Chuong 06.pdf" (Slide 32-37)',
+        plainDesc: 'Cột Tuổi chỉ từ 18-60, còn cột Lương từ 10 triệu - 100 triệu. Nếu không đưa về cùng thang đo, cột Lương sẽ lấn át hoàn toàn cột Tuổi khi tính khoảng cách.',
+        pills: ['Min-Max Scaling [0, 1]', 'Z-score Standardization (μ=0, σ=1)', 'One-Hot Encoding (Chữ -> 0/1)'],
+        modules: [
+          {
+            tag: 'Mục 2.5.4',
+            name: 'Chuẩn hóa thang đo số (Normalization)',
+            source: 'Bài giảng Chương 2 (Mục 2.5.4) • Slide DM-Chuong 02.pdf (Slide 38-42)',
+            plainMeaning: 'Ép các giá trị số to nhỏ khác nhau về một khoảng quy chuẩn chung.',
+            keyPoints: [
+              '<strong>Min-Max Normalization:</strong> Ép dữ liệu về đoạn [0, 1]. Công thức: (v - min) / (max - min).',
+              '<strong>Z-score Standardization:</strong> Đưa dữ liệu về trung bình μ = 0 và độ lệch chuẩn σ = 1. Công thức: (v - μ) / σ. Rất tốt khi không biết trước min/max.',
+              '<strong>Tại sao phải chuẩn hóa?</strong> Các thuật toán đo khoảng cách (k-NN, K-Means, SVM, PCA) nếu không chuẩn hóa sẽ cho kết quả sai lệch!'
+            ],
+            examQuestion: 'Đề thi hỏi: Thuật toán nào sau đây bắt buộc phải chuẩn hóa dữ liệu trước? -> Chọn: <strong>k-NN, K-Means, SVM</strong>.'
+          },
+          {
+            tag: 'Chương 6 - Slide 35',
+            name: 'Mã hóa biến phân loại (Categorical Encoding)',
+            source: 'Slide DM-Chuong 06.pdf (Slide 35) • Đề thi mẫu câu 5',
+            plainMeaning: 'Biến chữ như "Đỏ, Xanh, Vàng" thành các số 0 và 1.',
+            keyPoints: [
+              '<strong>One-Hot Encoding:</strong> Tạo ra k cột mới tương ứng k giá trị, mỗi dòng chỉ có 1 số 1 và còn lại là 0.',
+              '<strong>Label Encoding:</strong> Gán số nguyên 0, 1, 2... cho các giá trị có thứ bậc (như Tiểu học=1, THCS=2, Đại học=3).'
+            ],
+            examQuestion: 'Đề thi hỏi: Phương pháp nào chuyển đổi biến phân loại thành vector nhị phân 0/1? -> Chọn: <strong>One-Hot Encoding</strong>.'
+          }
+        ]
+      },
+      {
+        id: 's5',
+        step: 5,
+        title: 'KHAI PHÁ DỮ LIỆU (DATA MINING - TRỌNG TÂM CỐT LÕI)',
+        chapterId: 'ch_core',
+        chapterTag: 'Xuyên suốt Chương 3, 4, 5, 6',
+        side: 'left',
+        isCore: true,
+        badge: 'BƯỚC CỐT LÕI (TRỌNG TÂM)',
+        summary: 'Áp dụng các thuật toán máy học thông minh để tìm ra các mẫu hình, luật và dự báo tiềm ẩn.',
+        location: 'Trọng tâm toàn khóa học: Nằm trọn vẹn trong các file Bài giảng & Slide Chương 3, 4, 5, 6',
+        plainDesc: 'Đây chính là trái tim của môn học! Sau khi dữ liệu đã sạch và chuẩn hóa, ta áp dụng 4 nhóm thuật toán thông minh để máy tính tự động tìm ra tri thức.',
+        pills: ['Ch.3: Luật kết hợp Apriori', 'Ch.4: Phân lớp & Hồi quy (CART, Logistic)', 'Ch.5: Gom cụm K-Means, DBSCAN', 'Ch.6: Xu hướng Stream, Deep Learning'],
+        subTabs: ['ch3', 'ch4', 'ch5', 'ch6'],
+        ch3Content: {
+          title: 'CHƯƠNG 3: KHAI PHÁ TẬP PHỔ BIẾN & LUẬT KẾT HỢP',
+          source: 'File: "Bài giảng chương 3.docx" & "DM-Chuong 03.pdf"',
+          plainMeaning: 'Tìm xem những món hàng nào hay được khách mua cùng nhau trong siêu thị (như "Mua Bia thì mua kèm Tã lót").',
+          modules: [
+            {
+              name: 'Thuật toán Apriori',
+              desc: 'Dựa trên nguyên lý Anti-monotone: Nếu một tập món hàng đã không phổ biến thì bất kỳ tập lớn hơn chứa nó cũng không thể phổ biến (tỉa cành). Điểm yếu: Phải quét cơ sở dữ liệu nhiều lần và sinh ra quá nhiều tập con ứng viên.'
+            },
+            {
+              name: 'Thuật toán FP-Growth',
+              desc: 'Cải tiến vượt bậc so với Apriori: Nén toàn bộ dữ liệu vào cấu trúc cây FP-Tree, chỉ quét cơ sở dữ liệu đúng 2 lần, KHÔNG sinh tập ứng viên.'
+            },
+            {
+              name: 'Bộ 3 chỉ số bắt buộc phải thuộc',
+              desc: '• <strong>Support (Độ hỗ trợ):</strong> Tần suất xuất hiện đồng thời = count(A, B) / N.<br/>• <strong>Confidence (Độ tin cậy):</strong> Xác suất mua B khi đã mua A = Support(A, B) / Support(A).<br/>• <strong>Lift (Độ nâng):</strong> Lift = Confidence / Support(B). Nếu Lift > 1 là quan hệ kích cầu thuận; Lift = 1 là độc lập ngẫu nhiên.'
+            }
+          ]
+        },
+        ch4Content: {
+          title: 'CHƯƠNG 4: PHÂN LỚP & DỰ BÁO (CLASSIFICATION & PREDICTION)',
+          source: 'File: "Bài giảng chương 4.docx" & "DM-Chuong 04-Phan1 đến Phan4.pdf"',
+          plainMeaning: 'Học có giám sát (Supervised Learning): Dữ liệu có nhãn kết quả từ trước (như "Đậu/Rớt", "Gian lận/Bình thường"), dạy máy học quy luật để phân loại dữ liệu mới.',
+          modules: [
+            {
+              name: 'Cây quyết định (Decision Tree) [Phần 1 Slide]',
+              desc: 'Mô hình "Hộp trắng" trực quan, dễ chuyển thành các câu lệnh IF-THEN. Chọn thuộc tính rẽ nhánh bằng: Information Gain (ID3), Gain Ratio (C4.5), Gini Index (CART). Khắc phục Quá khớp (Overfitting) bằng kỹ thuật Cắt tỉa cành (Pruning).'
+            },
+            {
+              name: 'Phân lớp Naive Bayes [Phần 2 Slide]',
+              desc: 'Dựa trên định lý Bayes. Gọi là "ngây thơ" vì nó giả định các thuộc tính hoàn toàn độc lập có điều kiện với nhau (dù thực tế không độc lập). Rất mạnh khi phân loại văn bản/email rác.'
+            },
+            {
+              name: 'k-NN (k-Nearest Neighbors) [Phần 3 Slide]',
+              desc: 'Thuật toán học lười biếng (Lazy Learner): Không có bước huấn luyện mô hình, khi có điểm mới mới đi đo khoảng cách tới các láng giềng gần nhất. Thường chọn k lẻ để tránh việc hòa phiếu.'
+            },
+            {
+              name: 'Máy vector hỗ trợ (SVM) [Phần 3 Slide]',
+              desc: 'Tìm một siêu phẳng phân cách sao cho khoảng cách lề (Margin) giữa 2 lớp là cực đại. Với dữ liệu không phân tách tuyến tính được, SVM dùng kỹ thuật "Kernel Trick" để ánh xạ lên không gian nhiều chiều hơn.'
+            },
+            {
+              name: 'Hồi quy (Regression) & Hồi quy Logistic (Phần 5 Slide)',
+              desc: '• <strong>Phân biệt cốt lõi:</strong> Phân lớp (Classification) dự báo nhãn rời rạc (Đậu/Rớt); Hồi quy (Regression) dự báo giá trị số liên tục (Doanh số, Giá nhà).<br/>• <strong>Bẫy thi Logistic Regression:</strong> Mặc dù mang tên "Regression" nhưng thực chất là mô hình <strong>PHÂN LỚP</strong> (nhị phân), sử dụng hàm Sigmoid để ép giá trị về khoảng xác suất [0, 1].<br/>• <strong>Cây CART:</strong> Viết tắt của Classification And Regression Trees (hỗ trợ cả bài toán phân lớp và bài toán hồi quy).'
+            }
+          ]
+        },
+        ch5Content: {
+          title: 'CHƯƠNG 5: PHÂN TÍCH CỤM (CLUSTER ANALYSIS)',
+          source: 'File: "Bài giảng chương 5.docx" & "DM-Chuong 05.pdf"',
+          plainMeaning: 'Học không giám sát (Unsupervised Learning): Dữ liệu không có nhãn từ trước, thuật toán tự so sánh khoảng cách để gom các khách hàng có hành vi giống nhau vào cùng một nhóm.',
+          modules: [
+            {
+              name: 'Thuật toán K-Means [Slide 11-14]',
+              desc: 'Bắt buộc phải chọn trước số cụm K. Tối thiểu hóa tổng bình phương khoảng cách (SSE/WCSS). Điểm yếu: Rất nhạy cảm với điểm ngoại lai và chỉ tìm được cụm hình cầu. Tìm K tối ưu bằng phương pháp Elbow Method (nhìn điểm gãy đồ thị WCSS).'
+            },
+            {
+              name: 'Thuật toán K-Medoids / PAM [Slide 15]',
+              desc: 'Thay vì dùng trọng tâm hình học ảo (Mean), K-Medoids chọn điểm dữ liệu thực tế làm tâm cụm (Medoid), giúp kháng ngoại lai cực tốt.'
+            },
+            {
+              name: 'Phân cấp (Hierarchical) [Slide 16-20]',
+              desc: 'Không cần chọn K trước, biểu diễn bằng sơ đồ cây Dendrogram (kẻ đường cắt ngang để lấy K cụm). AGNES (gộp từ dưới lên), DIANA (tách từ trên xuống). Single Linkage dùng khoảng cách nhỏ nhất giữa 2 điểm (bị hiệu ứng chuỗi); Complete Linkage dùng khoảng cách lớn nhất.'
+            },
+            {
+              name: 'DBSCAN (Mật độ) [Slide 21-23]',
+              desc: 'Gom cụm dựa trên mật độ điểm trong bán kính Eps (tối thiểu MinPts điểm). Tìm được cụm có hình dạng uốn lượn bất kỳ và tự lọc được điểm nhiễu (Noise Point).'
+            }
+          ]
+        },
+        ch6Content: {
+          title: 'CHƯƠNG 6: XU HƯỚNG MỚI TRONG KHAI PHÁ DỮ LIỆU',
+          source: 'File: "Bài giảng CHƯƠNG 6.docx" & "DM-Chuong 06.pdf"',
+          plainMeaning: 'Các bài toán thực tế hiện đại: Dữ liệu lớn theo thời gian thực, Hệ thống gợi ý mua hàng, Học bảo vệ quyền riêng tư và Học sâu.',
+          modules: [
+            {
+              name: 'Khai phá luồng (Stream Mining) [Mục 1.1]',
+              desc: 'Dữ liệu đến liên tục như dòng nước (hàng triệu giao dịch/giây). Bắt buộc dùng thuật toán duyệt đúng 1 lần (One-pass) và mô hình Cửa sổ trượt (Sliding Window: Ngưỡng đếm = W × min_sup).'
+            },
+            {
+              name: 'Hệ thống gợi ý (Recommender Systems) [Mục 2.1]',
+              desc: '• Lọc cộng tác (Collaborative): Gợi ý dựa trên hành vi của người khác giống bạn -> Bị lỗi Cold-Start (không gợi ý được cho phim mới/người mới).<br/>• Lọc theo nội dung (Content-based): Dựa trên thuộc tính của chính sản phẩm -> Gợi ý được cho phim mới.<br/>• Thực tế: Phối hợp thành Hệ thống Lai (Hybrid).'
+            },
+            {
+              name: 'Học liên kết (Federated Learning) [Mục 2.3]',
+              desc: 'Huấn luyện AI cho nhiều bệnh viện mà không gom ảnh bệnh nhân về máy chủ trung tâm (bảo vệ quyền riêng tư). Mỗi viện tự học tại chỗ, chỉ gửi bản cập nhật trọng số FedAvg lên server.'
+            },
+            {
+              name: 'Kiến trúc Học sâu (Deep Learning) [Mục 4.1 - 4.5]',
+              desc: '• CNN: Dùng vùng cảm thụ cục bộ và chia sẻ trọng số, chuyên xử lý ảnh.<br/>• LSTM: Dùng đường truyền Cell State và 3 cổng để ghi nhớ ngữ cảnh chuỗi dài.<br/>• Transformer: Dùng cơ chế Chú ý (Attention) để xử lý ngôn ngữ song song.'
+            }
+          ]
+        }
+      },
+      {
+        id: 's6',
+        step: 6,
+        title: 'Đánh giá Mẫu hình (Pattern Evaluation)',
+        chapterId: 'ch_eval',
+        chapterTag: 'Mục 3.5, 4.8, 5.5',
+        side: 'right',
+        badge: 'Đo lường độ tin cậy',
+        summary: 'Sử dụng các chỉ số toán học để kiểm tra xem mô hình dự đoán có đúng thật không.',
+        location: 'Rải rác ở cuối mỗi chương: Mục 3.5 (Độ đo luật) • Mục 4.8 (Ma trận nhầm lẫn) • Mục 5.5 (Độ đo chất lượng cụm)',
+        plainDesc: 'Sau khi máy tính học xong, ta phải chấm điểm xem nó làm đúng bao nhiêu phần trăm, tránh trường hợp học vẹt (Overfitting).',
+        pills: ['Confusion Matrix: Acc, Prec, Recall', 'F1-Score khi dữ liệu Imbalanced', 'Hệ số Silhouette cụm [-1, +1]'],
+        modules: [
+          {
+            tag: 'Mục 4.8 Bài giảng Ch.4',
+            name: 'Đánh giá mô hình Phân lớp (Confusion Matrix)',
+            source: 'Bài giảng Chương 4 (Mục 4.8, trang 35-40) • Slide 04-Phan4',
+            plainMeaning: 'Bảng thống kê 4 ô: Dự đoán Đúng/Sai trên thực tế.',
+            keyPoints: [
+              '<strong>Accuracy (Độ chính xác tổng thể):</strong> (TP + TN) / Tổng số.',
+              '<strong>Precision (Độ chuẩn xác):</strong> TP / (TP + FP) -> Trong số những ca máy bảo là Gian lận, có mấy ca đúng?',
+              '<strong>Recall (Độ nhạy):</strong> TP / (TP + FN) -> Trong toàn bộ ca Gian lận ngoài đời, máy bắt được mấy ca?',
+              '<strong>F1-Score:</strong> Trung bình điều hòa giữa Precision và Recall. BẮT BUỘC DÙNG khi dữ liệu mất cân bằng (ví dụ 99% bình thường, 1% bệnh).'
+            ],
+            examQuestion: 'Đề thi hỏi: Khi nào dùng F1-Score thay vì Accuracy? -> Chọn: <strong>Khi dữ liệu mất cân bằng giữa các lớp</strong>.'
+          },
+          {
+            tag: 'Mục 5.5 Bài giảng Ch.5',
+            name: 'Đánh giá chất lượng Phân tích cụm',
+            source: 'Bài giảng Chương 5 (Mục 5.5) • Slide DM-Chuong 05.pdf (Slide 24-27)',
+            plainMeaning: 'Đo xem các cụm gom lại có khít và cách xa nhau không.',
+            keyPoints: [
+              '<strong>Hệ số Silhouette s(i):</strong> Giá trị từ -1 đến +1. Càng gần +1 thì cụm càng đậm đặc và tách biệt rõ.',
+              '<strong>Chỉ số Davies-Bouldin (DBI):</strong> Đo độ trùng lặp giữa các cụm. Chỉ số DBI CÀNG NHỎ thì phân cụm CÀNG TỐT!'
+            ],
+            examQuestion: 'Bẫy thi: DBI càng lớn hay càng nhỏ là tốt? -> <strong>CÀNG NHỎ CÀNG TỐT</strong>.'
+          }
+        ]
+      },
+      {
+        id: 's7',
+        step: 7,
+        title: 'Trình diễn & Triển khai (Deployment)',
+        chapterId: 'ch6',
+        chapterTag: 'Chương 6 (Mục 6.2, MLOps, XAI)',
+        side: 'left',
+        badge: 'Đưa vào sản xuất',
+        summary: 'Vẽ biểu đồ trực quan cho lãnh đạo hiểu và đưa mô hình vào chạy tự động trên hệ thống.',
+        location: 'File: "Bài giảng CHƯƠNG 6.docx" (Mục 6.2 & Mục 2.4 MLOps) • Slide DM-Chuong 06.pdf',
+        plainDesc: 'Bước cuối cùng: Làm giao diện cho người dùng bấm được, giải thích cho giám đốc hiểu tại sao AI duyệt hồ sơ, và vận hành tự động.',
+        pills: ['Visual Mining (Tọa độ song song, PBC)', 'AI Giải thích được (XAI: SHAP, LIME)', 'Khung MLOps & Trôi dữ liệu (Data Drift)'],
+        modules: [
+          {
+            tag: 'Mục 6.2 Bài giảng Ch.6',
+            name: 'Khai phá dữ liệu trực quan (Visual Data Mining)',
+            source: 'Slide DM-Chuong 06.pdf (Slide 17-18) • Jiawei Han Section 13.2.3',
+            plainMeaning: 'Biến những con số khô khan thành hình ảnh để mắt người nhận ra quy luật.',
+            keyPoints: [
+              '<strong>Không chỉ để vẽ cho đẹp:</strong> Trực quan hóa đóng 3 vai trò: (1) Khám phá mẫu hình tiềm ẩn (Patterns); (2) Phát hiện điểm ngoại lai (Outliers); (3) Hiểu cấu trúc phân bố dữ liệu.',
+              '<strong>Kỹ thuật tiêu biểu:</strong> Tọa độ song song (Parallel Coordinates - n trục thẳng đứng song song); Sơ đồ cây Dendrogram; Mặt người Chernoff (Chernoff Faces); Hệ thống PBC cho người dùng bấm chọn điểm rẽ nhánh.'
+            ],
+            examQuestion: 'Đề thi hỏi: Kỹ thuật nào chiếu n chiều thành n trục thẳng đứng song song? -> Chọn: <strong>Parallel Coordinates (Tọa độ song song)</strong>.'
+          },
+          {
+            tag: 'Mục 2.4 Bài giảng Ch.6',
+            name: 'AI giải thích được (XAI) & Vận hành MLOps',
+            source: 'Bài giảng Chương 6 (Mục 2.4) • Qamar & Raza 2024',
+            plainMeaning: 'Phá vỡ mô hình "hộp đen" và tự động hóa quy trình cập nhật AI.',
+            keyPoints: [
+              '<strong>Explainable AI (XAI):</strong> Dùng công cụ SHAP, LIME để giải thích lý do mô hình ra quyết định (bắt buộc trong y tế và ngân hàng để tuân thủ pháp lý và tạo niềm tin).',
+              '<strong>MLOps & Data Drift:</strong> Dữ liệu ngoài đời luôn thay đổi theo thời gian (Data Drift / Concept Drift). Hệ thống MLOps phải giám sát liên tục để tự động huấn luyện lại (Auto-retraining).'
+            ],
+            examQuestion: 'Đề thi hỏi: Tại sao cần XAI trong ngân hàng? -> Để <strong>giải thích lý do quyết định, tạo niềm tin và tuân thủ đạo đức/pháp luật</strong>.'
+          }
+        ]
+      }
+    ];
+
+    let currentFilter = 'all';
+    let currentStation = null;
+    let currentStation5Sub = 'ch3';
+
+    function renderCanvas() {
+      const container = document.getElementById('stations-wrapper');
+      container.innerHTML = '';
+
+      STATIONS_DATA.forEach(s => {
+        let isVisible = true;
+        if (currentFilter !== 'all') {
+          if (currentFilter === 'ch2' && s.chapterId !== 'ch2') isVisible = false;
+          if (currentFilter === 'ch3' && s.chapterId !== 'ch3' && s.chapterId !== 'ch_core' && s.chapterId !== 'ch_eval') isVisible = false;
+          if (currentFilter === 'ch4' && s.chapterId !== 'ch4' && s.chapterId !== 'ch_core' && s.chapterId !== 'ch_eval') isVisible = false;
+          if (currentFilter === 'ch5' && s.chapterId !== 'ch5' && s.chapterId !== 'ch_core' && s.chapterId !== 'ch_eval') isVisible = false;
+          if (currentFilter === 'ch6' && s.chapterId !== 'ch6' && s.chapterId !== 'ch_core') isVisible = false;
+        }
+        if (!isVisible) return;
+
+        const isLeft = s.side === 'left';
+        const node = document.createElement('div');
+        node.className = `relative flex flex-col md:flex-row items-center ${isLeft ? 'md:flex-row' : 'md:flex-row-reverse'} justify-between group`;
+        node.id = `card-${s.id}`;
+
+        node.innerHTML = `
+          <!-- CARD -->
+          <div class="w-full md:w-[calc(50%-36px)]">
+            <div onclick="openDrawer('${s.id}')" class="card-glass cursor-pointer rounded-2xl p-5 border ${s.isCore ? 'bg-rose-950/20 border-rose-500/80 shadow-lg shadow-rose-950/30' : 'bg-slate-900/80 border-slate-800 hover:border-indigo-500/70'} shadow-md relative group">
+              
+              <!-- TOP BADGES -->
+              <div class="flex items-center justify-between gap-2 mb-2 flex-wrap">
+                <span class="px-2.5 py-0.5 rounded-md text-[11px] font-black uppercase tracking-wider ${s.isCore ? 'bg-rose-500 text-white animate-pulse' : 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/30'}">
+                  TRẠM ${s.step} • ${s.badge}
+                </span>
+                <span class="text-xs font-semibold px-2 py-0.5 rounded-md bg-slate-800 text-slate-300 border border-slate-700">
+                  📖 ${s.chapterTag}
+                </span>
+              </div>
+
+              <!-- TITLE & ACTION -->
+              <h3 class="text-base sm:text-lg font-bold text-white group-hover:text-indigo-400 transition-colors flex items-center justify-between">
+                <span>${s.title}</span>
+                <span class="text-xs font-bold text-indigo-400 group-hover:translate-x-1 transition-transform flex items-center gap-1">
+                  Xem chi tiết ›
+                </span>
+              </h3>
+
+              <!-- PLAIN DESC -->
+              <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+                ${s.plainDesc}
+              </p>
+
+              <!-- LOCATION LINK BADGE -->
+              <div class="mt-2 text-[11px] text-amber-400/90 font-medium flex items-center gap-1">
+                <span>📍</span>
+                <span class="truncate">${s.location}</span>
+              </div>
+
+              <!-- SUB-PILLS -->
+              <div class="mt-3 pt-2.5 border-t border-slate-800/80 flex flex-wrap gap-1.5">
+                ${s.pills.map(p => `
+                  <span class="text-[11px] font-medium px-2 py-0.5 rounded-md bg-slate-950 text-slate-300 border border-slate-800">
+                    • ${p}
+                  </span>
+                `).join('')}
+              </div>
+
+            </div>
+          </div>
+
+          <!-- SUBWAY CENTER PIN ON SPINE -->
+          <div class="hidden md:flex items-center justify-center absolute left-1/2 -translate-x-1/2 z-10">
+            <div class="w-9 h-9 rounded-full border-4 border-slate-950 ${s.isCore ? 'bg-rose-500 ring-4 ring-rose-500/30 shadow-rose-500/50' : 'bg-indigo-600 ring-4 ring-indigo-500/20 shadow-indigo-500/50'} text-white font-extrabold text-xs flex items-center justify-center shadow-lg transition-transform group-hover:scale-110">
+              ${s.step}
+            </div>
+          </div>
+
+          <!-- EMPTY PLACEHOLDER -->
+          <div class="hidden md:block w-[calc(50%-36px)]"></div>
+        `;
+
+        container.appendChild(node);
+      });
+    }
+
+    function openDrawer(stationId) {
+      const s = STATIONS_DATA.find(item => item.id === stationId);
+      if (!s) return;
+      currentStation = s;
+
+      document.getElementById('d-badge').innerText = `TRẠM ${s.step}`;
+      document.getElementById('d-chapter').innerText = s.chapterTag;
+      document.getElementById('d-title').innerText = s.title;
+
+      renderDrawerSubnav();
+      renderDrawerBody();
+
+      document.getElementById('drawer-backdrop').classList.remove('hidden');
+      document.getElementById('side-drawer').classList.add('drawer-open');
+    }
+
+    function renderDrawerSubnav() {
+      const subnav = document.getElementById('drawer-subnav');
+      subnav.innerHTML = '';
+
+      if (currentStation.id === 's5') {
+        // Station 5 has 4 chapters! Render chapter tabs
+        const tabs = [
+          { id: 'ch3', label: 'Chương 3 (Luật kết hợp)' },
+          { id: 'ch4', label: 'Chương 4 (Phân lớp)' },
+          { id: 'ch5', label: 'Chương 5 (Gom cụm)' },
+          { id: 'ch6', label: 'Chương 6 (Xu hướng mới)' }
+        ];
+
+        tabs.forEach(t => {
+          const btn = document.createElement('button');
+          const isActive = t.id === currentStation5Sub;
+          btn.className = `py-3 px-3 border-b-2 whitespace-nowrap transition-all ${
+            isActive ? 'border-rose-500 text-rose-400 font-bold' : 'border-transparent text-slate-400 hover:text-slate-200'
+          }`;
+          btn.innerText = t.label;
+          btn.onclick = () => {
+            currentStation5Sub = t.id;
+            renderDrawerSubnav();
+            renderDrawerBody();
+          };
+          subnav.appendChild(btn);
+        });
+      } else {
+        // Normal stations: Single tab indicating overview
+        subnav.innerHTML = `
+          <div class="py-2.5 text-xs text-slate-400 font-medium">
+            📌 Định vị tài liệu: <span class="text-sky-300 font-semibold">${currentStation.location}</span>
+          </div>
+        `;
+      }
+    }
+
+    function renderDrawerBody() {
+      const body = document.getElementById('drawer-body');
+      body.innerHTML = '';
+
+      const s = currentStation;
+
+      // TOP HERO EXPLANATION BOX
+      const introBox = document.createElement('div');
+      introBox.className = 'p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2';
+      introBox.innerHTML = `
+        <div class="text-xs font-bold text-sky-400 uppercase tracking-wide flex items-center gap-1.5">
+          <span>💡 Bản chất bình dân dễ hiểu (Dùng để làm gì?)</span>
+        </div>
+        <div class="text-xs sm:text-sm text-slate-200 leading-relaxed font-medium">
+          ${s.plainDesc}
+        </div>
+        <div class="pt-2 border-t border-slate-800/80 text-[11px] text-amber-300/90 font-mono">
+          📁 ${s.location}
+        </div>
+      `;
+      body.appendChild(introBox);
+
+      // IF STATION 5, RENDER CHAPTER SPECIFIC CONTENT
+      if (s.id === 's5') {
+        let chData = null;
+        if (currentStation5Sub === 'ch3') chData = s.ch3Content;
+        if (currentStation5Sub === 'ch4') chData = s.ch4Content;
+        if (currentStation5Sub === 'ch5') chData = s.ch5Content;
+        if (currentStation5Sub === 'ch6') chData = s.ch6Content;
+
+        if (chData) {
+          const chCard = document.createElement('div');
+          chCard.className = 'space-y-4';
+          chCard.innerHTML = `
+            <div class="p-4 rounded-xl bg-gradient-to-r from-rose-950/40 to-slate-900 border border-rose-500/40">
+              <div class="text-xs font-black text-rose-400 uppercase tracking-wide">${chData.title}</div>
+              <div class="text-[11px] text-slate-400 font-mono mt-0.5">${chData.source}</div>
+              <div class="text-xs text-slate-200 mt-2 leading-relaxed font-medium">👉 ${chData.plainMeaning}</div>
+            </div>
+
+            <div class="space-y-3">
+              ${chData.modules.map((m, idx) => `
+                <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+                  <div class="text-xs font-bold text-sky-400 flex items-center gap-2">
+                    <span class="w-5 h-5 rounded bg-sky-500/20 text-sky-300 flex items-center justify-center text-[10px]">${idx+1}</span>
+                    <span>${m.name}</span>
+                  </div>
+                  <div class="text-xs text-slate-300 leading-relaxed pl-7">${m.desc}</div>
+                </div>
+              `).join('')}
+            </div>
+          `;
+          body.appendChild(chCard);
+        }
+      } else {
+        // NORMAL STATIONS: RENDER MODULES WITH DETAILED EXACT SECTIONS & EXAM QUESTIONS
+        const modContainer = document.createElement('div');
+        modContainer.className = 'space-y-4';
+
+        s.modules.forEach((mod, idx) => {
+          const modCard = document.createElement('div');
+          modCard.className = 'p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-3';
+          modCard.innerHTML = `
+            <div class="flex items-start justify-between gap-2 border-b border-slate-800/80 pb-2">
+              <div>
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">${mod.tag}</span>
+                <h4 class="text-xs sm:text-sm font-bold text-white mt-1">${mod.name}</h4>
+              </div>
+              <span class="text-[11px] font-mono text-slate-400 text-right">${mod.source}</span>
+            </div>
+
+            <div class="text-xs text-slate-300 leading-relaxed font-medium">
+              <span class="text-sky-400 font-bold">👉 Hiểu nhanh:</span> ${mod.plainMeaning}
+            </div>
+
+            <div class="space-y-1.5 pt-1">
+              <div class="text-[11px] font-bold text-slate-400 uppercase tracking-wide">Quy tắc & Kỹ thuật chính:</div>
+              <ul class="space-y-1.5 text-xs text-slate-300">
+                ${mod.keyPoints.map(kp => `
+                  <li class="flex items-start gap-2">
+                    <span class="text-indigo-400 font-bold">•</span>
+                    <span class="leading-relaxed">${kp}</span>
+                  </li>
+                `).join('')}
+              </ul>
+            </div>
+
+            <div class="p-3 rounded-lg bg-amber-950/40 border border-amber-500/40 text-amber-200 text-xs">
+              <span class="font-bold text-amber-400">🎯 Bẫy thi trắc nghiệm:</span> ${mod.examQuestion}
+            </div>
+          `;
+          modContainer.appendChild(modCard);
+        });
+
+        body.appendChild(modContainer);
+      }
+    }
+
+    function closeDrawer() {
+      document.getElementById('drawer-backdrop').classList.add('hidden');
+      document.getElementById('side-drawer').classList.remove('drawer-open');
+    }
+
+    function filterBy(val) {
+      currentFilter = val;
+      document.querySelectorAll('.filter-tag').forEach(btn => {
+        if (btn.dataset.val === val) {
+          btn.className = 'filter-tag px-3 py-1.5 rounded-lg text-xs font-semibold bg-indigo-600 text-white shadow-sm shadow-indigo-600/30 transition-all';
+        } else {
+          btn.className = 'filter-tag px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition-all';
+        }
+      });
+      renderCanvas();
+    }
+
+    function handleSearch(query) {
+      const q = query.trim().toLowerCase();
+      if (!q) {
+        document.querySelectorAll('.card-glass').forEach(el => el.classList.remove('ring-2', 'ring-indigo-500'));
+        return;
+      }
+      STATIONS_DATA.forEach(s => {
+        const matched = s.title.toLowerCase().includes(q) || s.plainDesc.toLowerCase().includes(q) || s.pills.some(p => p.toLowerCase().includes(q));
+        const cardEl = document.getElementById(`card-${s.id}`);
+        if (cardEl) {
+          const innerCard = cardEl.querySelector('.card-glass');
+          if (matched) {
+            innerCard.classList.add('ring-2', 'ring-indigo-500');
+            cardEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          } else {
+            innerCard.classList.remove('ring-2', 'ring-indigo-500');
+          }
+        }
+      });
+    }
+
+    function toggleTheme() {
+      document.documentElement.classList.toggle('dark');
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeDrawer();
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        const searchInput = document.getElementById('search-input');
+        if (searchInput) searchInput.focus();
+      }
+    });
+
+    renderCanvas();
+  </script>
+
+  <!-- OVERRIDE: 3 TABS (KIẾN THỨC • BẪY THI • 2-3 CÂU TÍNH TOÁN) -->
+  <script>
+    let currentView = 'know';
+
+    const S5_EXAMS = {
+      ch3: [
+        { q: 'Apriori vs FP-Growth: thuật toán nào quét CSDL ít lần và không sinh tập ứng viên?', a: '<strong>FP-Growth</strong> (quét đúng 2 lần, dùng cây FP-Tree). Apriori quét nhiều lần và sinh candidate bùng nổ.', src: 'Bài giảng Ch.3 • DM-Chuong 03.pdf' },
+        { q: 'Tính chất Anti-monotone giúp tỉa như thế nào?', a: 'Tập mục KHÔNG phổ biến thì <strong>mọi tập cha (superset) cũng không phổ biến</strong> → bỏ qua toàn bộ. (Đừng chọn đáp án "tập phổ biến thì superset cũng phổ biến" – sai!)', src: 'Đề thi mẫu câu 10' },
+        { q: 'Lift = 1.0, Lift > 1, Lift < 1 nghĩa là gì?', a: 'Lift = 1: hai món <strong>độc lập</strong>. Lift > 1: mua A làm <strong>tăng</strong> khả năng mua B. Lift < 1: mua A làm <strong>giảm</strong> khả năng mua B.', src: 'Đề thi mẫu câu 12, 13, 15, 37' },
+        { q: 'Vì sao Lift quan trọng hơn Confidence?', a: 'Confidence cao có thể do B vốn bán chạy sẵn (vd Conf=88% nhưng Sup(B)=92% → Lift≈0.96 <1). Lift loại bỏ ảnh hưởng này.', src: 'Đề thi mẫu câu 11, 12' }
+      ],
+      ch4: [
+        { q: 'Phân lớp (Classification) khác gì Hồi quy (Regression)?', a: '<strong>Kiểu dữ liệu biến mục tiêu:</strong> Phân lớp dự báo nhãn <strong>rời rạc / danh mục</strong> (vd: Đậu/Rớt, Gian lận/Bình thường); Hồi quy dự báo giá trị <strong>số liên tục</strong> (vd: Doanh số 5 tỷ, Giá nhà 3.5 tỷ).', src: 'Bài giảng Ch.4 (Mục 2) • Slide 04-Phan1 Slide 11-12' },
+        { q: 'Hồi quy Logistic (Logistic Regression) là mô hình phân lớp hay hồi quy?', a: 'Là mô hình <strong>PHÂN LỚP (Classification)</strong>! Tên có chữ "Regression" vì bên trong dùng hàm hồi quy tuyến tính, nhưng qua hàm Sigmoid ép về xác suất [0, 1] để phân loại.', src: 'Bài giảng Ch.4 (Phần 5) • Slide 04-Phan4' },
+        { q: 'Thuật toán CART là viết tắt của từ gì?', a: '<strong>Classification And Regression Trees</strong> (Cây phân lớp và Cây hồi quy).', src: 'Bài giảng Ch.4 • Đề thi trắc nghiệm' },
+        { q: 'Vì sao Naive Bayes gọi là "Naive"?', a: 'Vì <strong>giả định các thuộc tính độc lập có điều kiện</strong> với nhau (thực tế thường không đúng).', src: 'Đề thi mẫu câu 17' },
+        { q: 'k-NN là loại học gì? Chọn k thế nào?', a: '<strong>Lazy learner</strong> (không huấn luyện, tính khoảng cách lúc có điểm mới). Chọn <strong>k lẻ</strong> để tránh hòa phiếu.', src: 'Bài giảng Ch.4 (k-NN)' },
+        { q: 'Cây quyết định bị overfitting thì xử lý bằng gì?', a: '<strong>Pruning (cắt tỉa cành)</strong> – bỏ các nhánh không cải thiện độ chính xác trên tập kiểm tra.', src: 'Đề thi mẫu câu 19' },
+        { q: 'Kernel Trick của SVM giải quyết vấn đề gì?', a: 'Phân loại dữ liệu <strong>không tuyến tính</strong> bằng cách ánh xạ ngầm lên không gian đặc trưng chiều cao hơn.', src: 'Đề thi mẫu câu 38' },
+        { q: 'Tính Entropy tập 8(+) / 4(−)?', a: 'p = 2/3 và 1/3 → Entropy ≈ <strong>0.918</strong>. Tỉ lệ 50/50 → 1.0. Tỉ lệ 12/8 (0.6/0.4) → ≈ 0.971.', src: 'Đề thi mẫu câu 32, 40' }
+      ],
+      ch5: [
+        { q: 'Điểm yếu lớn nhất của K-Means?', a: 'Phải chọn trước K, chỉ tìm cụm hình cầu và <strong>rất nhạy với ngoại lai</strong>. K-Medoids/PAM kháng ngoại lai hơn.', src: 'DM-Chuong 05.pdf • Bài giảng Ch.5' },
+        { q: 'Chọn K tối ưu cho K-Means bằng cách nào?', a: '<strong>Elbow Method</strong> – nhìn điểm gãy của đồ thị WCSS (Inertia).', src: 'Đề thi mẫu câu 21' },
+        { q: 'Ưu điểm nổi bật của Hierarchical so với K-Means?', a: '<strong>Không cần chọn K trước</strong>; dendrogram cho thấy cấu trúc ở nhiều mức, kẻ đường cắt ngang để lấy K cụm.', src: 'Đề thi mẫu câu 22' },
+        { q: 'Single Linkage vs Complete Linkage?', a: 'Single = khoảng cách <strong>nhỏ nhất</strong> giữa 2 điểm (hiệu ứng chuỗi). Complete = khoảng cách <strong>lớn nhất</strong>.', src: 'Đề thi mẫu câu 24 • Bài giảng Ch.5' },
+        { q: 'DBSCAN: Core / Border / Noise?', a: 'Core: đủ ≥ MinPts láng giềng trong Eps. Border: không đủ nhưng nằm trong vùng lân cận của Core. Noise: còn lại.', src: 'Đề thi mẫu câu 25' },
+        { q: 'DBI (Davies-Bouldin) tốt khi nào?', a: 'DBI <strong>càng nhỏ càng tốt</strong> (cụm gọn, cách xa nhau).', src: 'Đề thi mẫu câu 36' }
+      ],
+      ch6: [
+        { q: 'Vì sao khai phá luồng phải one-pass?', a: 'Dữ liệu đến liên tục, vô hạn, không thể lưu trữ để quét lại → xử lý tức thời với bộ nhớ hạn chế.', src: 'Đề thi mẫu câu 26' },
+        { q: 'Sliding Window: W = 500, min_sup = 4% → cần xuất hiện bao nhiêu lần?', a: 'W × min_sup = 500 × 0.04 = <strong>20 lần</strong> (bước trượt S không tham gia phép tính).', src: 'Bài giảng Ch.6 – Dạng 7' },
+        { q: 'Gợi ý cho người dùng/phim MỚI (cold-start) dùng gì?', a: '<strong>Content-based</strong> (chỉ cần thuộc tính item) hoặc Hybrid. Collaborative bị lỗi cold-start.', src: 'Đề thi mẫu câu 28, 30' },
+        { q: 'Federated Learning khác gì học truyền thống?', a: 'Huấn luyện cục bộ, <strong>chỉ gửi trọng số/gradient</strong>, dữ liệu thô không rời khỏi bệnh viện/thiết bị.', src: 'Bài giảng Ch.6 – Mục 2.3' },
+        { q: 'ReLU giải quyết vấn đề nào? (lưu ý Slide 17 ghi nhầm)', a: 'Đạo hàm = 1 khi z>0 → chống <strong>Vanishing Gradient</strong> (slide tiếng Anh ghi "exploding" là chưa chuẩn).', src: 'DM-Chuong 06.pdf Slide 17 • D2L 4.8' },
+        { q: 'CNN: ảnh 32×32, filter 5×5, S=1, P=0 → output?', a: '(32 − 5 + 0)/1 + 1 = <strong>28 × 28</strong>.', src: 'Bài giảng Ch.6 – Dạng 1' },
+        { q: 'Data Mining và KDD khác nhau thế nào?', a: 'KDD là <strong>toàn bộ quy trình</strong>; Data Mining chỉ là <strong>một bước cốt lõi</strong> trong KDD.', src: 'Bài giảng Ch.6 – Mục 2.4.C' }
+      ]
+    };
+
+    const CALC_DATA = {
+      s1: [
+        {
+          name: 'Tìm ngưỡng điểm ngoại lai bằng Tứ phân vị (IQR)',
+          source: 'Chương 2 (Mục 2.3.2) • Đề thi KHÔNG in sẵn công thức!',
+          formula: 'IQR = Q3 - Q1\nNgưỡng dưới = Q1 - 1.5 × IQR\nNgưỡng trên = Q3 + 1.5 × IQR',
+          example: 'Cho Q1 = 60, Q3 = 78. Giá trị nào dưới đây là ngoại lai? (A. 35  B. 30  C. 70  D. 100)',
+          steps: [
+            'Bước 1: Tính IQR = 78 - 60 = 18',
+            'Bước 2: Ngưỡng dưới = 60 - 1.5 × 18 = 60 - 27 = 33',
+            'Bước 3: Ngưỡng trên = 78 + 1.5 × 18 = 78 + 27 = 105',
+            'Kết luận: Giá trị 30 < 33 là ngoại lai → Chọn B!'
+          ],
+          tip: 'Đề số nguyên rất dễ trừ, tính nhẩm 15 giây là ra đáp án.'
+        }
+      ],
+      s4: [
+        {
+          name: 'Chuẩn hóa Min-Max Scaling về đoạn [0, 1]',
+          source: 'Chương 2 (Mục 2.5.4) • Đề thi KHÔNG in sẵn công thức!',
+          formula: 'v\' = (v - min) / (max - min)',
+          example: 'Thuộc tính Lương có min = 10 triệu, max = 50 triệu. Giá trị chuẩn hóa của 30 triệu là bao nhiêu?',
+          steps: [
+            'v\' = (30 - 10) / (50 - 10) = 20 / 40 = 0.5',
+            'Đáp án: 0.5 (chính giữa thang đo).'
+          ],
+          tip: 'Nếu chuẩn hóa về [new_min, new_max]: nhân thêm (new_max - new_min) rồi cộng new_min.'
+        },
+        {
+          name: 'Chuẩn hóa Z-Score (Zero-Mean)',
+          source: 'Chương 2 (Mục 2.5.4)',
+          formula: 'z = (v - μ) / σ',
+          example: 'Cho trung bình μ = 50, độ lệch chuẩn σ = 10. Giá trị v = 65 có z-score bằng bao nhiêu?',
+          steps: [
+            'z = (65 - 50) / 10 = 15 / 10 = 1.5',
+            'Đáp án: 1.5.'
+          ],
+          tip: 'Lấy (giá trị - trung bình) rồi chia cho độ lệch chuẩn.'
+        }
+      ],
+      s5_ch3: [
+        {
+          name: 'Tính Support, Confidence và Lift của Luật kết hợp (A ⇒ B)',
+          source: 'Chương 3 (Mục 3.2 & 3.5) • Trọng tâm kinh điển!',
+          formula: 'Support(A ⇒ B) = count(A ∪ B) / N\nConfidence(A ⇒ B) = count(A ∪ B) / count(A)\nLift(A ⇒ B) = Confidence(A ⇒ B) / Support(B)',
+          example: 'Tổng số N = 1000 giỏ hàng. Có 200 giỏ có Bia, 300 giỏ có Tã lót, và 150 giỏ có cả Bia và Tã. Tính Confidence và Lift của luật (Bia ⇒ Tã)?',
+          steps: [
+            'Support(Bia ⇒ Tã) = 150 / 1000 = 0.15 (15%)',
+            'Confidence(Bia ⇒ Tã) = 150 / 200 = 0.75 (75%)',
+            'Support(Tã) = 300 / 1000 = 0.30 (30%)',
+            'Lift(Bia ⇒ Tã) = 0.75 / 0.30 = 2.5 > 1 (Kích cầu thuận lợi!).'
+          ],
+          tip: '⚠️ BẪY: Confidence(A ⇒ B) thì mẫu số là count(A). Đừng lấy nhầm count(B)!'
+        }
+      ],
+      s5_ch4: [
+        {
+          name: 'Hàm Sigmoid trong Hồi quy Logistic (Logistic Regression)',
+          source: 'Chương 4 (Phần 5) • Bài giảng & Slide 04-Phan4',
+          formula: 'P(y=1|z) = σ(z) = 1 / (1 + e^(-z))\nNgưỡng phân loại mặc định: 0.5',
+          example: 'Khi tổng tuyến tính z = 0, xác suất dự đoán Lớp 1 là bao nhiêu?',
+          steps: [
+            'z = 0 → e^(-0) = 1',
+            'σ(0) = 1 / (1 + 1) = 1 / 2 = 0.5 (Ngưỡng phân vân 50/50)',
+            'Nếu z > 0 → σ(z) > 0.5 → Phân vào Lớp 1 (Dương tính)',
+            'Nếu z < 0 → σ(z) < 0.5 → Phân vào Lớp 0 (Âm tính)'
+          ],
+          tip: 'Hồi quy Logistic dùng hàm Sigmoid để biến đường thẳng vô hạn thành đường cong chữ S giới hạn từ 0 đến 1.'
+        },
+        {
+          name: 'Tính Entropy (Độ vẩn đục) của tập mẫu',
+          source: 'Chương 4 (Cây quyết định ID3) • Đề thi mẫu câu 32, 40',
+          formula: 'Entropy(S) = - p(+) log2(p(+)) - p(-) log2(p(-))',
+          example: 'Bảng học thuộc 4 tỷ lệ kinh điển để KHÔNG CẦN bấm máy tính log2:',
+          steps: [
+            '• Tỉ lệ 50% - 50% (cân bằng) → Entropy = 1.0',
+            '• Tỉ lệ 8(+) / 4(-) (tỉ lệ 2:1, tức 2/3 và 1/3) → Entropy ≈ 0.918',
+            '• Tỉ lệ 6(+) / 4(-) (tỉ lệ 0.6 và 0.4, hoặc 12/8) → Entropy ≈ 0.971',
+            '• Thuần khiết 100% (toàn bộ 1 lớp duy nhất) → Entropy = 0.0'
+          ],
+          tip: 'Đề thi trắc nghiệm không cho máy tính cao cấp, nên 100% đề ra đúng 2 tỷ lệ 8/4 (0.918) hoặc 6/4 (0.971).'
+        }
+      ],
+      s5_ch5: [
+        {
+          name: 'Cập nhật tọa độ Trọng tâm mới (Centroid) của K-Means',
+          source: 'Chương 5 (K-Means) • Đề thi mẫu câu 21, 35',
+          formula: 'X_mới = (x1 + x2 + ... + xk) / k\nY_mới = (y1 + y2 + ... + yk) / k',
+          example: 'Cụm gồm 3 điểm: A(2, 4), B(4, 6), C(6, 8). Trọng tâm mới là tọa độ nào?',
+          steps: [
+            'X_mới = (2 + 4 + 6) / 3 = 12 / 3 = 4',
+            'Y_mới = (4 + 6 + 8) / 3 = 18 / 3 = 6',
+            'Đáp án: Tâm mới C(4, 6).'
+          ],
+          tip: 'Chỉ là tính trung bình cộng x theo x, y theo y. Phép tính cấp 1!'
+        }
+      ],
+      s5_ch6: [
+        {
+          name: 'Cửa sổ trượt Stream Mining (Số lần xuất hiện tối thiểu)',
+          source: 'Chương 6 (Dạng 7) • Đề thi mẫu câu 27 • CỰC KỲ DỄ DÍNH BẪY SỐ THỪA',
+          formula: 'Ngưỡng đếm = Kích thước cửa sổ (W) × min_sup',
+          example: 'Cửa sổ kích thước W = 500, bước trượt S = 100, min_sup = 4%. Cần xuất hiện bao nhiêu lần trong cửa sổ?',
+          steps: [
+            'Lấy W × min_sup = 500 × 4% = 500 × 0.04 = 20 lần',
+            'Đáp án: 20 lần.'
+          ],
+          tip: '🚨 BẪY ĐỀ THI: "Bước trượt S = 100" là số thừa đề cho vào để lừa! Tuyệt đối không đưa S vào phép tính.'
+        },
+        {
+          name: 'Kích thước ngõ ra Feature Map của CNN',
+          source: 'Chương 6 (Dạng 1) • Đề thi mẫu câu 29 • ĐỀ THẬT KHÔNG IN CÔNG THỨC!',
+          formula: 'Output = ((W - K + 2P) / S) + 1',
+          example: 'Ảnh đầu vào 32 × 32, Filter 5 × 5, Stride S = 1, Padding P = 0. Kích thước ngõ ra là?',
+          steps: [
+            'Output = ((32 - 5 + 0) / 1) + 1 = 27 + 1 = 28',
+            'Đáp án: 28 × 28.'
+          ],
+          tip: 'Mẹo nhẩm siêu tốc khi S=1, P=0: Lấy Kích thước ảnh trừ Kích thước Filter cộng 1 (32 - 5 + 1 = 28).'
+        },
+        {
+          name: 'Tỷ lệ phương sai tích lũy của PCA (Explained Variance)',
+          source: 'Chương 6 (Mục 6.3) • Đề thi mẫu câu 31',
+          formula: 'Tỷ lệ % = (Tổng các λ chọn) / (Tổng TẤT CẢ các λ)',
+          example: 'Cho 4 trị riêng λ = [8, 4, 2, 1]. Giữ lại 2 thành phần chính đầu tiên thì giữ được bao nhiêu % thông tin?',
+          steps: [
+            'Tổng tất cả λ = 8 + 4 + 2 + 1 = 15',
+            'Tổng 2 λ đầu = 8 + 4 = 12',
+            'Tỷ lệ = 12 / 15 = 80%',
+            'Đáp án: 80%.'
+          ],
+          tip: 'Cộng 2 số to nhất chia cho tổng 4 số.'
+        }
+      ],
+      s6: [
+        {
+          name: 'Tính các chỉ số Ma trận nhầm lẫn (Confusion Matrix)',
+          source: 'Chương 4 (Mục 4.8) & Trạm 6 • Đề thi mẫu câu 33, 34',
+          formula: 'Accuracy = (TP + TN) / Tổng\nPrecision = TP / (TP + FP)\nRecall = TP / (TP + FN)',
+          example: 'Kiểm tra 100 ca: TP = 40, TN = 45, FP = 10, FN = 5. Tính Accuracy, Precision và Recall?',
+          steps: [
+            'Tổng số = 40 + 45 + 10 + 5 = 100',
+            'Accuracy = (40 + 45) / 100 = 85 / 100 = 85% (0.85)',
+            'Precision = 40 / (40 + 10) = 40 / 50 = 80% (0.80)',
+            'Recall = 40 / (40 + 5) = 40 / 45 = 88.89% (0.89)'
+          ],
+          tip: 'Precision chia mẫu cho cột máy dự đoán Dương (TP + FP). Recall chia mẫu cho cột thực tế Dương (TP + FN).'
+        }
+      ]
+    };
+
+    function getExamItems(s) {
+      if (s.id === 's5') {
+        return S5_EXAMS[currentStation5Sub].map(e => ({ q: e.q, a: e.a, src: e.src }));
+      }
+      return s.modules.map(m => ({ q: m.name, a: m.examQuestion, src: m.source }));
+    }
+
+    function getCalcItems(s) {
+      if (s.id === 's5') {
+        return CALC_DATA['s5_' + currentStation5Sub] || [];
+      }
+      return CALC_DATA[s.id] || [];
+    }
+
+    function setView(v) {
+      currentView = v;
+      renderDrawerSubnav();
+      renderDrawerBody();
+    }
+
+    function renderDrawerSubnav() {
+      const sub = document.getElementById('drawer-subnav');
+      sub.innerHTML = '';
+      sub.className = 'border-b border-slate-800/80 bg-slate-950/40 px-5 text-xs font-semibold';
+
+      const wrap = document.createElement('div');
+      wrap.className = 'w-full';
+
+      // 3 MAIN TABS
+      const row1 = document.createElement('div');
+      row1.className = 'flex gap-1 overflow-x-auto custom-scroll';
+      [
+        ['know', '📘 Kiến thức cốt lõi'],
+        ['exam', '🎯 Bẫy thi trắc nghiệm'],
+        ['calc', '🧮 2-3 Câu Tính toán (Đề ko cho CT)']
+      ].forEach(([id, label]) => {
+        const b = document.createElement('button');
+        const active = currentView === id;
+        let colorClass = 'border-indigo-500 text-indigo-400 font-bold';
+        if (id === 'exam') colorClass = 'border-amber-500 text-amber-400 font-bold';
+        if (id === 'calc') colorClass = 'border-emerald-500 text-emerald-400 font-bold';
+
+        b.className = `py-3 px-3 border-b-2 whitespace-nowrap transition-all ${
+          active ? colorClass : 'border-transparent text-slate-400 hover:text-slate-200'
+        }`;
+        b.innerText = label;
+        b.onclick = () => setView(id);
+        row1.appendChild(b);
+      });
+      wrap.appendChild(row1);
+
+      // SUB-NAV CHAPTERS CHO TRẠM 5
+      if (currentStation.id === 's5') {
+        const row2 = document.createElement('div');
+        row2.className = 'flex gap-1.5 py-2 overflow-x-auto custom-scroll';
+        [['ch3', 'Chương 3 (Luật kết hợp)'], ['ch4', 'Chương 4 (Phân lớp)'], ['ch5', 'Chương 5 (Gom cụm)'], ['ch6', 'Chương 6 (Xu hướng mới)']].forEach(([id, label]) => {
+          const b = document.createElement('button');
+          const active = currentStation5Sub === id;
+          b.className = `px-2.5 py-1 rounded-md text-[11px] whitespace-nowrap transition-all ${
+            active ? 'bg-rose-500/20 text-rose-300 border border-rose-500/40 font-bold' : 'bg-slate-900 text-slate-400 border border-slate-800 hover:text-slate-200'
+          }`;
+          b.innerText = label;
+          b.onclick = () => { currentStation5Sub = id; renderDrawerSubnav(); renderDrawerBody(); };
+          row2.appendChild(b);
+        });
+        wrap.appendChild(row2);
+      }
+      sub.appendChild(wrap);
+    }
+
+    function renderDrawerBody() {
+      const body = document.getElementById('drawer-body');
+      body.innerHTML = '';
+      const s = currentStation;
+
+      // ==================== TAB 3: 2-3 CÂU TÍNH TOÁN ====================
+      if (currentView === 'calc') {
+        const calcs = getCalcItems(s);
+        
+        // CẢNH BÁO TỪ THÍ SINH
+        const alertBox = document.createElement('div');
+        alertBox.className = 'p-3.5 rounded-xl bg-emerald-950/40 border border-emerald-500/40 space-y-1.5 text-xs text-emerald-200';
+        alertBox.innerHTML = `
+          <div class="font-bold text-emerald-300 flex items-center gap-1.5">
+            <span>🚨 THÔNG TIN MẬT TỪ PHÒNG THI:</span>
+          </div>
+          <div class="leading-relaxed text-slate-300">
+            Đề thi 40 câu chỉ có <strong class="text-emerald-400">đúng 2 - 3 câu tính toán</strong>. Số liệu cực kỳ dễ tính, NHƯNG đề thi thật <strong class="text-rose-400 underline">KHÔNG IN SẴN CÔNG THỨC</strong> trong ngoặc vuông như đề cương mẫu! Bạn bắt buộc phải thuộc các công thức dưới đây để tự ráp số.
+          </div>
+        `;
+        body.appendChild(alertBox);
+
+        if (calcs.length === 0) {
+          const empty = document.createElement('div');
+          empty.className = 'p-6 text-center text-xs text-slate-500 border border-dashed border-slate-800 rounded-xl';
+          empty.innerHTML = `Trạm này không có câu hỏi tính toán công thức trong đề thi (toàn bộ là lý thuyết bản chất).`;
+          body.appendChild(empty);
+          return;
+        }
+
+        calcs.forEach((item, idx) => {
+          const card = document.createElement('div');
+          card.className = 'p-4 rounded-xl bg-slate-950 border border-emerald-500/30 space-y-3';
+          card.innerHTML = `
+            <div class="border-b border-slate-800/80 pb-2">
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">DẠNG TOÁN ${idx + 1}</span>
+              <h4 class="text-xs sm:text-sm font-bold text-white mt-1">${item.name}</h4>
+              <div class="text-[11px] font-mono text-slate-400 mt-0.5">📁 ${item.source}</div>
+            </div>
+
+            <!-- CÔNG THỨC PHẢI THUỘC LÒNG -->
+            <div class="p-3 rounded-lg bg-slate-900 border border-slate-800">
+              <div class="text-[11px] font-bold text-emerald-400 uppercase tracking-wide">⚡ Công thức phải tự thuộc (Đề không cho):</div>
+              <pre class="text-xs font-mono text-emerald-200 mt-1 whitespace-pre-wrap leading-relaxed">${item.formula}</pre>
+            </div>
+
+            <!-- VÍ DỤ MINH HỌA -->
+            <div class="space-y-1.5 text-xs text-slate-300">
+              <div class="font-bold text-sky-400">📝 Ví dụ trắc nghiệm thực tế:</div>
+              <div class="p-2.5 rounded bg-slate-900/60 border border-slate-800/60 text-slate-200">${item.example}</div>
+              <div class="space-y-1 pt-1 font-mono text-[11px]">
+                ${item.steps.map(st => `<div class="text-slate-300">✓ ${st}</div>`).join('')}
+              </div>
+            </div>
+
+            <!-- MẸO TRÁNH BẪY -->
+            <div class="p-2.5 rounded bg-amber-950/30 border border-amber-500/30 text-amber-200 text-xs">
+              <strong class="text-amber-400">💡 Bí kíp 15 giây:</strong> ${item.tip}
+            </div>
+          `;
+          body.appendChild(card);
+        });
+        return;
+      }
+
+      // ==================== TAB 2: BẪY THI TRẮC NGHIỆM ====================
+      if (currentView === 'exam') {
+        const items = getExamItems(s);
+        const head = document.createElement('div');
+        head.className = 'text-xs text-slate-400';
+        head.innerHTML = `Các câu/bẫy hay ra của <strong class="text-white">${s.title}</strong>${s.id === 's5' ? ' – ' + currentStation5Sub.replace('ch', 'Chương ') : ''}:`;
+        body.appendChild(head);
+        items.forEach((it, i) => {
+          const card = document.createElement('div');
+          card.className = 'p-4 rounded-xl bg-amber-950/30 border border-amber-500/40 space-y-2';
+          card.innerHTML = `
+            <div class="text-xs font-bold text-amber-300">❓ ${i + 1}. ${it.q}</div>
+            <div class="text-xs text-slate-100 leading-relaxed">✅ ${it.a}</div>
+            <div class="text-[11px] font-mono text-slate-400">📁 ${it.src}</div>`;
+          body.appendChild(card);
+        });
+        return;
+      }
+
+      // ==================== TAB 1: KIẾN THỨC CỐT LÕI ====================
+      const intro = document.createElement('div');
+      intro.className = 'p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2';
+      intro.innerHTML = `
+        <div class="text-xs font-bold text-sky-400 uppercase tracking-wide">💡 Bản chất bình dân (dùng để làm gì?)</div>
+        <div class="text-xs sm:text-sm text-slate-200 leading-relaxed font-medium">${s.plainDesc}</div>
+        <div class="pt-2 border-t border-slate-800/80 text-[11px] text-amber-300/90 font-mono">📁 ${s.location}</div>`;
+      body.appendChild(intro);
+
+      if (s.id === 's5') {
+        const chData = s[currentStation5Sub + 'Content'];
+        const wrap = document.createElement('div');
+        wrap.className = 'space-y-4';
+        wrap.innerHTML = `
+          <div class="p-4 rounded-xl bg-gradient-to-r from-rose-950/40 to-slate-900 border border-rose-500/40">
+            <div class="text-xs font-black text-rose-400 uppercase tracking-wide">${chData.title}</div>
+            <div class="text-[11px] text-slate-400 font-mono mt-0.5">${chData.source}</div>
+            <div class="text-xs text-slate-200 mt-2 leading-relaxed font-medium">👉 ${chData.plainMeaning}</div>
+          </div>
+          ${chData.modules.map((m, idx) => `
+            <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+              <div class="text-xs font-bold text-sky-400">${idx + 1}. ${m.name}</div>
+              <div class="text-xs text-slate-300 leading-relaxed">${m.desc}</div>
+            </div>`).join('')}`;
+        body.appendChild(wrap);
+      } else {
+        s.modules.forEach(mod => {
+          const card = document.createElement('div');
+          card.className = 'p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-3';
+          card.innerHTML = `
+            <div class="flex items-start justify-between gap-2 border-b border-slate-800/80 pb-2">
+              <div>
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">${mod.tag}</span>
+                <h4 class="text-xs sm:text-sm font-bold text-white mt-1">${mod.name}</h4>
+              </div>
+              <span class="text-[11px] font-mono text-slate-400 text-right">${mod.source}</span>
+            </div>
+            <div class="text-xs text-slate-300 leading-relaxed font-medium"><span class="text-sky-400 font-bold">👉 Hiểu nhanh:</span> ${mod.plainMeaning}</div>
+            <ul class="space-y-1.5 text-xs text-slate-300">
+              ${mod.keyPoints.map(kp => `<li class="flex items-start gap-2"><span class="text-indigo-400 font-bold">•</span><span class="leading-relaxed">${kp}</span></li>`).join('')}
+            </ul>`;
+          body.appendChild(card);
+        });
+      }
+    }
+  </script>
+</body>
+</html>

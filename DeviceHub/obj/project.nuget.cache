@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "IbJjae+mbms=",
+  "success": true,
+  "projectFilePath": "D:\\HUB\\DM\\DeviceHub\\DeviceHub.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Ngo Thanh Trung\\.nuget\\packages\\hidsharp\\2.6.4\\hidsharp.2.6.4.nupkg.sha512",
+    "C:\\Users\\Ngo Thanh Trung\\.nuget\\packages\\microsoft.net.illink.tasks\\8.0.24\\microsoft.net.illink.tasks.8.0.24.nupkg.sha512",
+    "C:\\Users\\Ngo Thanh Trung\\.nuget\\packages\\wpf-ui\\4.3.0\\wpf-ui.4.3.0.nupkg.sha512",
+    "C:\\Users\\Ngo Thanh Trung\\.nuget\\packages\\wpf-ui.abstractions\\4.3.0\\wpf-ui.abstractions.4.3.0.nupkg.sha512"
+  ],
+  "logs": []
+}

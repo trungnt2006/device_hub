@@ -1,0 +1,3 @@
+D:\HUB\DM\NativeApp\DeviceHub.pdb
+D:\HUB\DM\NativeApp\Assets\app.ico
+D:\HUB\DM\NativeApp\DeviceHub.exe

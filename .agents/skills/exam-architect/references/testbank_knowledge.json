@@ -1,0 +1,159 @@
+{
+  "sources_ingested": [
+    "1028243859-Business-Intelligence-Analytics-and-Data-Science-A-Managerial-Perspective-4th-Edition-Sharda-Test-Bank-digital-edition.pdf"
+  ],
+  "sibling_concept_clusters": [
+    {
+      "stem": "One of SiriusXM's challenges was tracking potential customers when cars were sold. \nAnswer:  TRUE \nDiff: 1      Page Ref: 54 \n \n2) To respond to its market challenges, SiriusXM decided to focus on manufacturing efficiency. \nAnswer:  FALSE \nDiff: 2      Page Ref: 55 \n \n3) Data is the contextualization of information, that is, information set in context. \nAnswer:  FALSE \nDiff: 1      Page Ref: 98 \n \n4) Data is the main ingredient for any BI, data science, and business analytics initiative. \nAnswer:  TRUE \nDiff: 2      Page Ref: 57 \n \n5) Predictive algorithms generally require a flat file with a target variable, so making data \nanalytics ready for prediction means that data sets must be transformed into a flat-file format and \nmade ready for ingestion into those predictive algorithms. \nAnswer:  TRUE \nDiff: 1      Page Ref: 58 \n \n6) The data storage component of a business reporting system builds the various reports and \nhosts them for, or disseminates them to users. It also provides notification, annotation, \ncollaboration, and other services. \nAnswer:  FALSE \nDiff: 2      Page Ref: 98 \n \n7) In the FEMA case study, the BureauNet software was the primary reason behind the increased \nspeed and relevance of the reports FEMA employees received. \nAnswer:  TRUE \n[PAGE_6]\n2 \nCopyright © 2018 Pearson Education, Inc. \n \nDiff: 2      Page Ref: 100 \n \n8) Google Maps has set new standards for data visualization with its intuitive Web mapping \nsoftware. \nAnswer:  TRUE \nDiff: 2      Page Ref: 103 \n \n9) There are basic chart types and specialized chart types. A Gantt chart is a specialized chart \ntype. \nAnswer:  TRUE \nDiff: 2      Page Ref: 107\n[PAGE_7]\nDiff: 2 Page Ref: 61 \n2 \nCopyright © 2018 Pearson Education, Inc. \n \n10) Visualization differs from traditional charts and graphs in complexity of data sets and use of \nmultiple dimensions and measures. \nAnswer:  TRUE \nDiff: 2      Page Ref: 110 \n \n11) When telling a story during a presentation, it is best to avoid describing hurdles that your \ncharacter must overcome, to avoid souring the mood. \nAnswer:  FALSE \nDiff: 2      Page Ref: 113 \n \n12) Visual analytics is aimed at answering, \"What is it happening?\" and is usually associated \nwith business analytics. \nAnswer:  FALSE \nDiff: 3      Page Ref: 112 \n \n13) Dashboards provide visual displays of important information that is consolidated and \narranged across several screens to maintain data order. \nAnswer:  FALSE \nDiff: 2      Page Ref: 117 \n \n14) In the Dallas Cowboys case study, the focus was on using data analytics to decide which \nplayers would play every week. \nAnswer:  FALSE \nDiff: 2      Page Ref: 118 \n \n15) Data source reliability means that data are correct and are a good match for the analytics \nproblem. \nAnswer:  FALSE \nDiff: 1      Page Ref: 59 \n \n16) Data accessibility means that the data are easily and readily obtainable. \nAnswer:  TRUE \nDiff: 3      Page Ref: 59 \n \n17) Structured data is what data mining algorithms use and can be classified as categorical or \nnumeric. \nAnswer:  TRUE \nDiff: 2      Page Ref: 61 \n \n18) Interval data are variables that can be measured on interval scales. \nAnswer:  TRUE \nDiff: 2      Page Ref: 62 \n \n19) Nominal data represent the labels of multiple classes used to divide a variable into specific \ngroups. \nAnswer:  FALSE\n[PAGE_8]\nDiff: 2 Page Ref: 101 \n3 \nCopyright © 2018 Pearson Education, Inc. \n \n \n20) Descriptive statistics is all about describing the sample data on hand. \nAnswer:  TRUE \nDiff: 2      Page Ref: 75 \n \n21) Which characteristic of data means that all the required data elements are included in the data \nset?",
+      "siblings": [
+        "data source reliability",
+        "data accessibility",
+        "data richness",
+        "data granularity"
+      ],
+      "correct_answer": "C"
+    },
+    {
+      "stem": "Key performance indicators (KPIs) are metrics typically used to measure",
+      "siblings": [
+        "database responsiveness.",
+        "qualitative feedback.",
+        "external results.",
+        "internal results."
+      ],
+      "correct_answer": "D"
+    },
+    {
+      "stem": "Kaplan and Norton developed a report that presents an integrated view of success in the \norganization called",
+      "siblings": [
+        "metric management reports.",
+        "balanced scorecard-type reports.",
+        "dashboard-type reports.",
+        "visual reports."
+      ],
+      "correct_answer": "B"
+    },
+    {
+      "stem": "Which characteristic of data requires that the variables and data values be defined at the \nlowest (or as low as required) level of detail for the intended use of the data?",
+      "siblings": [
+        "data source reliability",
+        "data accessibility",
+        "data richness",
+        "data granularity"
+      ],
+      "correct_answer": "D"
+    },
+    {
+      "stem": "Which of the following is LEAST related to data/information visualization?",
+      "siblings": [
+        "information graphics",
+        "scientific visualization",
+        "statistical graphics",
+        "graphic artwork"
+      ],
+      "correct_answer": "D"
+    },
+    {
+      "stem": "The Internet emerged as a new medium for visualization and brought all the following \nEXCEPT",
+      "siblings": [
+        "worldwide digital distribution of visualization.",
+        "immersive environments for consuming data.",
+        "new forms of computation of business logic.",
+        "new graphics displays through PC displays."
+      ],
+      "correct_answer": "C"
+    },
+    {
+      "stem": "Which kind of chart is described as an enhanced version of a scatter plot?",
+      "siblings": [
+        "heat map",
+        "bullet",
+        "pie chart",
+        "bubble chart"
+      ],
+      "correct_answer": "D"
+    },
+    {
+      "stem": "Which type of visualization tool can be very helpful when the intention is to show relative \nproportions of dollars per department allocated by a university administration?",
+      "siblings": [
+        "heat map",
+        "bullet",
+        "pie chart",
+        "bubble chart"
+      ],
+      "correct_answer": "C"
+    },
+    {
+      "stem": "Which type of visualization tool can be very helpful when a data set contains location data?",
+      "siblings": [
+        "bar chart",
+        "geographic map",
+        "highlight table",
+        "tree map"
+      ],
+      "correct_answer": "B"
+    },
+    {
+      "stem": "Which type of question does visual analytics seeks to answer?",
+      "siblings": [
+        "Why is it happening?",
+        "What happened yesterday?",
+        "What is happening today?",
+        "When did it happen?"
+      ],
+      "correct_answer": "A"
+    },
+    {
+      "stem": "Dashboards can be presented at all the following levels EXCEPT",
+      "siblings": [
+        "the visual dashboard level.",
+        "the static report level.",
+        "the visual cube level.",
+        "the self-service cube level."
+      ],
+      "correct_answer": "C"
+    },
+    {
+      "stem": "This measure of central tendency is the sum of all the values/observations divided by the \nnumber of observations in the data set.",
+      "siblings": [
+        "dispersion",
+        "mode",
+        "median",
+        "arithmetic mean"
+      ],
+      "correct_answer": "D"
+    },
+    {
+      "stem": "This measure of dispersion is calculated by simply taking the square root of the variations.",
+      "siblings": [
+        "standard deviation",
+        "range",
+        "variance",
+        "arithmetic mean"
+      ],
+      "correct_answer": "A"
+    },
+    {
+      "stem": "This plot is a graphical illustration of several descriptive statistics about a given data set.",
+      "siblings": [
+        "pie chart",
+        "bar graph",
+        "box-and-whiskers plot",
+        "kurtosis"
+      ],
+      "correct_answer": "C"
+    },
+    {
+      "stem": "This technique makes no a priori assumption of whether one variable is dependent on the \nother(s) and is not concerned with the relationship between variables; instead it gives an estimate \non the degree of association between the variables.",
+      "siblings": [
+        "regression",
+        "correlation",
+        "means test",
+        "multiple regression"
+      ],
+      "correct_answer": "B"
+    }
+  ],
+  "sample_stems": [],
+  "contrast_pairs": []
+}
